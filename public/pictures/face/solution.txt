@@ -1,0 +1,43 @@
+import { Component } from "react";
+
+class JeuDe extends Component{
+
+    constructor(props){
+        super(props);
+        this.state = {face : null , cpt : 0 , dispaly : false };
+    }
+
+   joue = ()=> {
+        let faceVal = Math.floor(Math.random()*6+1)
+        this.setState({ face:faceVal, cpt: this.state.cpt+1});
+        if(faceVal==this.props.cache)
+            this.setState({dispaly : true});
+    }
+
+    init = ()=>{
+        this.setState({face : null , cpt : 0 , dispaly : false })
+    }
+
+    render(){
+        return <div> 
+            <img className="imgFace" src={
+                this.state.face == null ? 
+                "/pictures/face/init.png" : 
+                `/pictures/face/face${this.state.face}.png`
+            }/>
+            <h1>Jeu de dé ...</h1>
+            <p>Face : {this.state.face}</p>
+            <p>Nombre d'essais : {this.state.cpt} </p>
+            {
+                this.state.dispaly==true ? 
+                <div>  <p>Bravo vous avez trouvez la face cachée…..</p>
+                <button onClick={this.init}>Initialiser</button> 
+                    </div> :
+                <button onClick={this.joue}>Jouer</button>
+            }
+            
+        </div>
+    }
+}
+
+export default JeuDe;

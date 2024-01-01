@@ -1,0 +1,31 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.header,
+.row {
+    display: flex;
+}
+
+.cell {
+    padding: 10px;
+    border: 1px solid #ddd;
+    flex: 1;
+}
+
+.actions button {
+    margin-right: 5px;
+}
